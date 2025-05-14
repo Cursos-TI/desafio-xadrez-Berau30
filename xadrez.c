@@ -34,6 +34,7 @@ int main() {
     return 0;
 }
     // Nível Aventureiro - Movimentação do Cavalo
+    
     #include <stdio.h>
 
 int main(){
@@ -88,8 +89,68 @@ int main(){
     return 0;
 }
     // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    
+    #include <stdio.h>
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+void MoverTorre(int torre){
+    if (torre > 0)
+    {
+        printf("Direita \n");
+        MoverTorre(torre - 1);
+    }
+    
+}
+
+void MoverBispo(int passoAtual, int totalPassos) {
+    if (passoAtual < totalPassos) {
+        printf("Cima Direita\n");
+        MoverBispo(passoAtual + 1, totalPassos);
+    }
+}
+
+void MoverRainha(int rainha){
+    if (rainha)
+    {
+        printf("Esquerda\n");
+        MoverRainha(rainha - 1);
+    }
+    
+
+}
+
+int main(){
+    int casas = 5;
+    int torre = 5;
+    int bispo = 1;
+    int rainha = 8;
+    int cavalo = 1;
+    
+    MoverTorre(torre);
+    printf("A torre acaba de se movimentar 5 casas para a direita\n");
+
+    for (int linha = 0; linha < 1; linha++) {
+        for (int coluna = 0; coluna < 1; coluna++) {
+            MoverBispo(0, casas);
+        }
+    }
+
+    printf("O bispo se moveu 5 casas na diagonal (Para cima e para direita)!\n");
+
+    while (rainha <= 8)
+    {
+        MoverRainha(rainha);
+        rainha++;
+        printf("Esquerda\n");
+    }
+
+    printf("A rainha acaba de se movimentar 8 casas para a esquerda\n");
+
+    for (int i = 1, j = 0; i <=2, j <=1; i++, j++)
+    {
+        printf("Cavalo se movimentou %d para cima e %d para a direita\n", i, j);
+    }
+
+    printf("O cavalo acaba me fazer o movimento de L para 2 casas para cima e uma para Direita");
+    
+    return 0;
+}
